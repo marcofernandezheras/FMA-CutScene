@@ -24,7 +24,7 @@ public class ImageFrame extends JFrame {
 		//Pantalla completa
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
 		
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		//Cargamos la imagen
 		BufferedImage myPicture = ImageIO.read(new File(imageFile));
