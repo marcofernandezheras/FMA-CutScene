@@ -8,11 +8,15 @@ import java.io.File;
 
 public class EntryPoint {
 
-	
-
 	static int currentImageIndex = 0;
 	static int currentSoundIndex = 0;
 
+	/**
+	 * Busca los archivos de una extension dentro de una carpeta
+	 * @param folder carpeta donde buscar
+	 * @param extension de los archivos a buscar
+	 * @return lista de archivos (ruta absoluta)
+	 */
 	public static List<String> listFilesForFolder(final File folder, String extension) {
 		List<String> ret = new ArrayList<>();
 		for (final File fileEntry : folder.listFiles())
@@ -68,7 +72,7 @@ public class EntryPoint {
 				{
 					for (int i = 0; i < Constants.IMAGES_PER_LOOP; i++)
 					{
-						new ImageFrame(images.get(currentImageIndex)).setVisible(true);
+						new ImageFrame(images.get(currentImageIndex), sounds.get(currentSoundIndex)).setVisible(true);
 						currentImageIndex = (currentImageIndex + 1) % images.size();
 						currentSoundIndex = (currentSoundIndex + 1) % sounds.size();
 						Thread.sleep(Constants.SHOW_TIME);

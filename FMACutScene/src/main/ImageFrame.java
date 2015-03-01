@@ -4,6 +4,8 @@ import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -13,10 +15,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
+
 @SuppressWarnings("serial")
 public class ImageFrame extends JFrame {
 	
-	public ImageFrame(String imageFile) throws IOException {
+	public ImageFrame(String imageFile, String soundFile) throws IOException {
 		super();
 		//Quitamos bordes de la ventana
 		this.setUndecorated(true);
@@ -43,5 +48,21 @@ public class ImageFrame extends JFrame {
 				that.dispatchEvent(new WindowEvent(that, WindowEvent.WINDOW_CLOSING));
 			}
 		}, Constants.SHOW_TIME);
+		
+		//Reproducidos el audio
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				try
+				{
+					new Player(new FileInputStream(soundFile)).play();
+				}
+				catch (FileNotFoundException | JavaLayerException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}, 250);		
+		
 	}
 }
