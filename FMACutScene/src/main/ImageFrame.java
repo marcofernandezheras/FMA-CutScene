@@ -16,13 +16,16 @@ import javax.swing.JLabel;
 @SuppressWarnings("serial")
 public class ImageFrame extends JFrame {
 	
-	public ImageFrame(String imageFile, int showTime) throws IOException {
+	public ImageFrame(String imageFile) throws IOException {
 		super();
 		//Quitamos bordes de la ventana
 		this.setUndecorated(true);
 		
 		//Pantalla completa
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+		
+		//Encima de otras aplicaciones
+		this.setAlwaysOnTop(true);
 		
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -39,6 +42,6 @@ public class ImageFrame extends JFrame {
 			public void run() {
 				that.dispatchEvent(new WindowEvent(that, WindowEvent.WINDOW_CLOSING));
 			}
-		}, showTime);
+		}, Constants.SHOW_TIME);
 	}
 }
