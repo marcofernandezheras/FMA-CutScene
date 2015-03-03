@@ -62,7 +62,7 @@ public class ImageFrame extends JFrame {
 					e.printStackTrace();
 				}
 			}
-		}, 250);		
+		}, Constants.SOUND_DELAY);		
 		
 	}
 }

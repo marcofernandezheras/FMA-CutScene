@@ -24,15 +24,20 @@ public class Constants {
 	/**
 	 * Tiempo que se mostraran las imagenes en ms.
 	 */
-	public static int SHOW_TIME = 6000;
+	public static final int SHOW_TIME = 6000;
 	
 	/**
 	 * Tiempo entre imagenes en ms.
 	 */
-	public static int DELAY_TIME = 60000;
+	public static final int DELAY_TIME = 60000;
 	
 	/**
 	 * Imagenes en cada iteracion
 	 */
-	public static int IMAGES_PER_LOOP = 2;
+	public static final int IMAGES_PER_LOOP = 2;
+	
+	/**
+	 * Retraso del sonido respecto la imagen en ms
+	 */
+	public static final int SOUND_DELAY = 250;
 }
